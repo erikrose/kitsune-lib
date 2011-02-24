@@ -12,8 +12,9 @@ class TagWidget(forms.TextInput):
 
 class TagField(forms.CharField):
     widget = TagWidget
-    
+
     def clean(self, value):
+        value = super(TagField, self).clean(value)
         try:
             return parse_tags(value)
         except ValueError:
