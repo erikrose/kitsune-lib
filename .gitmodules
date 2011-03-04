@@ -76,3 +76,6 @@
 [submodule "src/django-qunit"]
 	path = src/django-qunit
 	url = git://github.com/kumar303/django-qunit.git
+[submodule "src/django-adminplus"]
+	path = src/django-adminplus
+	url = git://github.com/jsocol/django-adminplus
