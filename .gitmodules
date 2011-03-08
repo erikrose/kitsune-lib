@@ -73,3 +73,6 @@
 [submodule "src/django-mobility"]
 	path = src/django-mobility
 	url = git://github.com/jbalogh/django-mobility
+[submodule "src/django-qunit"]
+	path = src/django-qunit
+	url = git://github.com/kumar303/django-qunit.git

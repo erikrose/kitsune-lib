@@ -57,3 +57,4 @@ src/django-csp
 src/django-waffle
 src/sphinxapi
 src/django-mobility
+src/django-qunit
