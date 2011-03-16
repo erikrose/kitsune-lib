@@ -1,32 +1,70 @@
-#! /usr/bin/python
+#! /usr/bin/env python
 
-# Copyright (C) 2007-2009 Michael Foord
+# Copyright (C) 2007-2011 Michael Foord & the mock team
 # E-mail: fuzzyman AT voidspace DOT org DOT uk
 # http://www.voidspace.org.uk/python/mock/
 
-from textwrap import dedent
 from mock import __version__
 
-from distutils.core import setup
+import os
 
-setup(
-    name = "mock",
-    version = __version__,
-    py_modules = ['mock'],
-    
+
+NAME = 'mock'
+MODULES = ['mock']
+DESCRIPTION = 'A Python Mocking and Patching Library for Testing'
+
+URL = "http://www.voidspace.org.uk/python/mock/"
+
+readme = os.path.join(os.path.dirname(__file__), 'README.txt')
+LONG_DESCRIPTION = open(readme).read()
+
+CLASSIFIERS = [
+    'Development Status :: 4 - Beta',
+    'Environment :: Console',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: BSD License',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 2',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 2.4',
+    'Programming Language :: Python :: 2.5',
+    'Programming Language :: Python :: 2.6',
+    'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3.0',
+    'Programming Language :: Python :: 3.1',
+    'Programming Language :: Python :: 3.2',
+    'Operating System :: OS Independent',
+    'Topic :: Software Development :: Libraries',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+    'Topic :: Software Development :: Testing',
+]
+
+AUTHOR = 'Michael Foord'
+AUTHOR_EMAIL = 'michael@voidspace.org.uk'
+KEYWORDS = ("testing test mock mocking unittest patching "
+            "stubs fakes doubles").split(' ')
+
+params = dict(
+    name=NAME,
+    version=__version__,
+    py_modules=MODULES,
+
     # metadata for upload to PyPI
-    author = "Michael Foord",
-    author_email = "fuzzyman@voidspace.org.uk",
-    description = "A Python mock object library",
-    long_description = dedent("""\
-    Mock is a flexible mock object intended to replace the use of stubs and test doubles 
-    throughout your code. Mocks are callable and create attributes as new mocks when you 
-    access them. Accessing the same attribute will always return the same mock. Mocks 
-    record how you use them, allowing you to make assertions about what your code has 
-    done to them."""),
-    license = "BSD",
-    keywords = "testing test mock mocking unittest patching stubs",
-    url = "http://www.voidspace.org.uk/python/mock/",
-    download_url = 'http://www.voidspace.org.uk/downloads/mock-%s.zip' % __version__,
-
+    author=AUTHOR,
+    author_email=AUTHOR_EMAIL,
+    description=DESCRIPTION,
+    long_description=LONG_DESCRIPTION,
+    keywords=KEYWORDS,
+    url=URL,
+    classifiers=CLASSIFIERS,
 )
+
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
+else:
+    params['tests_require'] = ['unittest2']
+    params['test_suite'] = 'unittest2.collector'
+
+setup(**params)

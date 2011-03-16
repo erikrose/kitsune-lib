@@ -2,6 +2,7 @@ MANIFEST.in
 README.txt
 mock.py
 setup.cfg
+setup.py
 docs/changelog.txt
 docs/compare.txt
 docs/examples.txt
@@ -73,10 +74,10 @@ html/_static/triangle_closed.png
 html/_static/triangle_left.png
 html/_static/triangle_open.png
 html/_static/underscore.js
-pip-egg-info/mock.egg-info/PKG-INFO
-pip-egg-info/mock.egg-info/SOURCES.txt
-pip-egg-info/mock.egg-info/dependency_links.txt
-pip-egg-info/mock.egg-info/top_level.txt
+mock.egg-info/PKG-INFO
+mock.egg-info/SOURCES.txt
+mock.egg-info/dependency_links.txt
+mock.egg-info/top_level.txt
 tests/__init__.py
 tests/_testwith.py
 tests/support.py
